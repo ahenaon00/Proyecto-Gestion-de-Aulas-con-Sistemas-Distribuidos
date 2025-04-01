@@ -8,7 +8,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 
 @Entity
-public class Aulas {
+public class Aula {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -21,10 +21,10 @@ public class Aulas {
     @JoinColumn(name = "asignacion_id", nullable = false)
     private Asignacion asignacion;
 
-    public Aulas() {
+    public Aula() {
     }
 
-    public Aulas(String tipo, boolean disponibilidad, String ubicacion) {
+    public Aula(String tipo, boolean disponibilidad, String ubicacion) {
         this.tipo = tipo;
         this.disponibilidad = disponibilidad;
         this.ubicacion = ubicacion;

@@ -8,8 +8,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -21,11 +19,7 @@ public class ProgramaAcademico {
     private String nombre;
     private String semestre;
 
-    @ManyToOne
-    @JoinColumn(name = "facultad_id", nullable = false)
-    private Facultad facultad;
-
-    @OneToMany(mappedBy = "programa", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "programaAcademico", cascade = CascadeType.ALL)
     private List<Solicitud> solicitud =  new ArrayList<>();
 
     public ProgramaAcademico() {
@@ -58,14 +52,6 @@ public class ProgramaAcademico {
 
     public void setSemestre(String semestre) {
         this.semestre = semestre;
-    }
-
-    public Facultad getFacultad() {
-        return facultad;
-    }
-
-    public void setFacultad(Facultad facultad) {
-        this.facultad = facultad;
     }
 
     public List<Solicitud> getSolicitud() {

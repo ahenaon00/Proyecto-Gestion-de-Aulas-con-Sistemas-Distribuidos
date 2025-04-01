@@ -23,7 +23,7 @@ public class Asignacion {
     private Solicitud solicitud;
 
     @OneToOne(mappedBy = "asignacion")
-    private Aulas aulas;
+    private Aula aulas;
 
     public Asignacion() {
     }

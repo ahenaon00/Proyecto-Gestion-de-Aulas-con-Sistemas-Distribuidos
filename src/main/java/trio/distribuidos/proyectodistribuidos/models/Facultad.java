@@ -8,18 +8,21 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
 
 @Entity
 public class Facultad {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String nombre;
 
-    @OneToMany(mappedBy = "facultad", cascade = CascadeType.ALL)
-    private List<ProgramaAcademico> programaAcademico =  new ArrayList<>();
+    @OneToMany
+    private List<ProgramaAcademico> programaAcademico;
 
     @OneToMany(mappedBy = "facultad", cascade = CascadeType.ALL)
     private List<Solicitud> solicitud =  new ArrayList<>();
